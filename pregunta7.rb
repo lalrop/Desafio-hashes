@@ -11,22 +11,23 @@ puts " Digite una opcion de las siguientes:
 
 option = gets.chomp.to_i
 while option != 7
-  if option == 1
+  case option
+  when 1
       puts "Ingrese el item que desea agregar y su stock, separados por una coma (',')"
-      a = gets.chomp.to_sym
+      a = gets.chomp.capitalize
       a_arr = a.split(',')
-      inventario[a_arr[0]] = a_arr[-1]
+      inventario[a_arr[0].to_sym] = a_arr[-1]
       puts " Se a agregado #{a.split[0]} al inventario con un stock de #{a.split[-1]}"
       puts inventario
 
-  elsif option == 2
+  when 2
       puts "Que item desea eliminar?"
       b = gets.chomp.capitalize.to_sym
       inventario.delete(b)
       puts "Usted a eliminado #{b} del inventario"
       puts inventario
 
-  elsif option == 3
+  when 3
       puts "Digite el item que desea actualizar"
       b = gets.chomp.capitalize.to_sym
       puts "Cuanto es el stock de este item?"
@@ -35,7 +36,7 @@ while option != 7
       puts "El item #{b} se a actualizado"
       puts inventario
 
-  elsif option == 4
+  when 4
       stock = inventario.values
       total = 0
       stock.each do |i|
@@ -43,12 +44,12 @@ while option != 7
       end
       puts "El inventario posee stock total de #{total} unidades"
 
-  elsif option == 5
+  when 5
       stock = inventario.values.sort
       b = inventario.key(stock[-1])
       puts " El item con mayor stock es #{b}"
 
-  elsif option == 6
+  when 6
       puts "Que item busca?"
       b = gets.chomp.capitalize.to_sym
       if inventario.has_key?(b) == true
