@@ -111,10 +111,10 @@ while option != 10
       puts edad.inject(0){|sum,i| sum = sum + i } / edad.size
 
     when 9
-      curso_gen ={[genero] => [nombre, edad, comuna]}
-      puts curso_gen
-
-
+      curso_genero = {[genero] => [nombre, edad,comuna]}
+      curso.keys.each do |i|
+          
+      end
   end
 puts "
         ////////////////////////////////////////////////////////////////////////
